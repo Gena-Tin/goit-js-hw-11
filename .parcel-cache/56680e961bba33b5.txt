@@ -2551,7 +2551,7 @@
 77/home/tin/Dropbox/projects/goit-js-hw-11/node_modules/css-select/lib/types.js1668633041713619860 0
 74/home/tin/Dropbox/projects/goit-js-hw-11/node_modules/@swc/helpers/scripts1668633042173622372 1
 100/home/tin/Dropbox/projects/goit-js-hw-11/node_modules/caniuse-lite/data/features/publickeypinning.js1668633042821625907 0
-63/home/tin/Dropbox/projects/goit-js-hw-11/dist/index.975ef6c8.js1668633150334132757 0
+63/home/tin/Dropbox/projects/goit-js-hw-11/dist/index.975ef6c8.js1668635123854373744 0
 93/home/tin/Dropbox/projects/goit-js-hw-11/node_modules/csso/lib/restructure/6-restructBlock.js1668633041413618218 0
 72/home/tin/Dropbox/projects/goit-js-hw-11/node_modules/micromatch/LICENSE1668633040981615856 0
 85/home/tin/Dropbox/projects/goit-js-hw-11/node_modules/caniuse-lite/data/regions/PE.js1668633042809625842 0
@@ -2665,7 +2665,7 @@
 71/home/tin/Dropbox/projects/goit-js-hw-11/node_modules/parcel/src/bin.js1668633041153616797 0
 52/home/tin/Dropbox/projects/goit-js-hw-11/.prettierrc1667913257535237000 0
 70/home/tin/Dropbox/projects/goit-js-hw-11/node_modules/dotenv/config.js1668633041089616447 0
-45/home/tin/Dropbox/projects/goit-js-hw-11/dist1668633150342132789 1
+45/home/tin/Dropbox/projects/goit-js-hw-11/dist1668635123862373593 1
 106/home/tin/Dropbox/projects/goit-js-hw-11/node_modules/parcel-reporter-clean-dist/test/fixtures/files/embed1668633042289623005 1
 72/home/tin/Dropbox/projects/goit-js-hw-11/node_modules/asynckit/stream.js1668633041249617322 0
 82/home/tin/Dropbox/projects/goit-js-hw-11/node_modules/@parcel/types/lib/index.d.ts1668633041537618897 0
@@ -2835,7 +2835,7 @@
 74/home/tin/Dropbox/projects/goit-js-hw-11/node_modules/ordered-binary/tests1668633041313617672 1
 82/home/tin/Dropbox/projects/goit-js-hw-11/node_modules/@parcel/transformer-html/lib1668633041357617912 1
 84/home/tin/Dropbox/projects/goit-js-hw-11/node_modules/xxhash-wasm/esm/xxhash-wasm.js1668633041097616491 0
-67/home/tin/Dropbox/projects/goit-js-hw-11/dist/index.975ef6c8.js.map1668633150342132789 0
+67/home/tin/Dropbox/projects/goit-js-hw-11/dist/index.975ef6c8.js.map1668635123858373669 0
 64/home/tin/Dropbox/projects/goit-js-hw-11/node_modules/parcel/lib1668633041153616797 1
 145/home/tin/Dropbox/projects/goit-js-hw-11/node_modules/@parcel/node-resolver-core/test/fixture/node_modules/side-effects-package-redirect-down/foo1668633042565624511 1
 85/home/tin/Dropbox/projects/goit-js-hw-11/node_modules/caniuse-lite/data/regions/UA.js1668633042853626082 0
@@ -3950,7 +3950,7 @@
 94/home/tin/Dropbox/projects/goit-js-hw-11/node_modules/posthtml-expressions/lib/placeholders.js1668633041365617956 0
 71/home/tin/Dropbox/projects/goit-js-hw-11/node_modules/entities/lib/maps1668633041721619903 1
 75/home/tin/Dropbox/projects/goit-js-hw-11/node_modules/svgo/lib/svgo-node.js1668633042233622700 0
-53/home/tin/Dropbox/projects/goit-js-hw-11/src/index.js1668632168138057673 0
+53/home/tin/Dropbox/projects/goit-js-hw-11/src/index.js1668635223800536773 0
 88/home/tin/Dropbox/projects/goit-js-hw-11/node_modules/posthtml-expressions/lib/locals.js1668633041309617650 0
 128/home/tin/Dropbox/projects/goit-js-hw-11/node_modules/@parcel/node-resolver-core/test/fixture/node_modules/aliased-file/index.js1668633042157622285 0
 88/home/tin/Dropbox/projects/goit-js-hw-11/node_modules/posthtml-expressions/lib/escape.js1668633041109616556 0

@@ -23,11 +23,9 @@ function submitHandler(e){
 
     fetchImages(ref.inputField.value.trim())
     .then(data => {
-        showMarkup = createMarkup(data.hits),
-        ref.imageList.innerHTML = showMarkup,
+        ref.imageList.innerHTML = createMarkup(data.hits),
 
         simpleLightBox = new SimpleLightbox('.gallery a').refresh()
-       
     });
 }
 
