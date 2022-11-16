@@ -12,9 +12,132 @@ body {
   line-height: 1.5;
 }
 
-#search-box {
+a {
+  text-decoration: none;
+}
+
+
+
+/* #search-box {
   font: inherit;
   padding: 8px;
   max-width: 320px;
   margin-bottom: 16px;
+} */
+
+.is-hidden {
+  display: none;
+}
+
+.search-form__container {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+
+    width: 100%;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    position: fixed;
+    top: 0px;
+    background-color: #444457;
+    /* box-shadow: 0 1px 3px hsl(0deg 0% 92% / 12%), 0 1px 1px hsl(0deg 0% 81% / 14%), 0 2px 1px hsl(0deg 0% 95% / 20%); */
+    z-index: 1;
+}
+.search-form {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+.search-form input {
+  width: 20%;
+  border-radius: 4px 0 0 4px;
+  border: none;
+  outline: none;
+  background-color: #f8f8f8;
+  padding: 8px 10px;
+  font: inherit;
+}
+
+.search-form button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 2.5em;
+  border: none;
+  background-color: #c8c8c8;
+  border-radius: 0 4px 4px 0;
+  cursor: pointer;
+}
+
+.material-icons {
+  font-family: 'Material Icons';
+  font-weight: normal;
+  font-style: normal;
+  font-size: 24px;
+  line-height: 1;
+  letter-spacing: normal;
+  text-transform: none;
+  display: inline-block;
+  white-space: nowrap;
+  word-wrap: normal;
+  direction: ltr;
+  -webkit-font-feature-settings: 'liga';
+  -webkit-font-smoothing: antialiased;
+}
+
+.gallery {
+  display: flex;
+  flex-wrap: wrap;
+  margin-left: -20px;
+  padding-top: 60px;
+  justify-content: center;
+}
+.gallery__link {
+  margin-top: 20px;
+  margin-left: 20px;
+  min-width: 320px;
+  flex-basis: calc(25% - 20px);
+  border: 2px solid rgb(7, 10, 43);
+  border-radius: 10px;
+  overflow: hidden;
+  transition: all 0.3s;
+}
+
+.gallery__link:hover {
+  cursor: zoom-in;
+}
+
+.gallery__item {
+  display: flex;
+  flex-direction: column;
+  /* position: relative; */
+  box-shadow: 0px 1px 3px 0px rgba(0, 0, 0, 0.2),
+    0px 1px 1px 0px rgba(0, 0, 0, 0.14), 0px 2px 1px -1px rgba(0, 0, 0, 0.12);
+}
+.gallery__image {
+  display: block;
+  /* width: 30vw; */
+  height: 30vh;
+
+  object-fit: cover;
+  transition: transform var(--animation-duration) var(--timing-function);
+}
+
+.gallery__image:hover {
+  transform: scale(1.03);
+}
+
+.gallery__info {
+  display: flex;
+  flex-wrap: wrap;
+
+  padding: 10px;
+  justify-content: space-around;
+}
+.gallery__info-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  color: rgb(7, 10, 43);
 }
