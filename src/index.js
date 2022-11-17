@@ -46,6 +46,9 @@ ref.searchForm.addEventListener("submit", submitHandler);
 
 function submitHandler(e){
     e.preventDefault();
+    ref.imageList.innerHTML = '';
+    ref.loadMoreBtm.classList.add("is-hidden");
+
     window.scrollTo({ top: 0 });
     query = ref.inputField.value.trim();
     if(query===''){
@@ -73,7 +76,7 @@ function submitHandler(e){
 
         simpleLightBox = new SimpleLightbox('.gallery a').refresh()      
 
-    });
+    }).catch(error => console.log(error));
 }
 
 function loadMoreHandler(){
@@ -89,7 +92,7 @@ function loadMoreHandler(){
         }
         ref.imageList.insertAdjacentHTML('beforeend', createMarkup(data.hits));
         simpleLightBox = new SimpleLightbox('.gallery a').refresh()
-    });
+    }).catch(error => console.log(error));
 }
 
 
