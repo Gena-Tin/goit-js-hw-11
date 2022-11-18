@@ -104,6 +104,7 @@ function notifySuccessOrNo(hits, totalHits) {
     return;
   } else {
     Notify.success(`Hooray! We found ${totalHits} images.`);
+    //-------
   }
 }
 
