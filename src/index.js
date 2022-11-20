@@ -2,7 +2,7 @@ import './css/styles.css';
 import SimpleLightbox from 'simplelightbox';
 import 'simplelightbox/dist/simple-lightbox.min.css';
 import { Notify } from 'notiflix/build/notiflix-notify-aio';
-//import InfiniteScroll from 'infinite-scroll';
+import throttle from 'lodash.throttle';
 
 import { fetchImages } from './js/fetchImages';
 import { createMarkup } from './js/markup';
@@ -15,6 +15,7 @@ const ref = {
   endOfSearch: document.querySelector('.end-of-search'),
 };
 
+let stopLoad = true;
 let query = '';
 let page = 1;
 const perPage = 40;
@@ -35,21 +36,16 @@ function submitHandler(e) {
   ref.endOfSearch.classList.add('is-hidden');
 
   window.scrollTo({ top: 0 });
-
   query = ref.inputField.value.trim();
-  if (query === '') {
-    Notify.warning(
-      "UPS. I can't find the void. Please try typing something other, than spaces"
-    );
-    return;
-  }
 
   fetchImages(query, page, perPage)
     .then(({ data }) => {
       ref.endOfSearch.classList.add('is-hidden');
 
-      notifyEndOfSearch(page, data.totalHits);
+      stopLoad = false;
+
       notifySuccessOrNo(data.hits, data.totalHits);
+      notifyEndOfSearch(page, data.totalHits);
 
       if (data.totalHits > perPage) {
         ref.loadMoreBtm.classList.remove('is-hidden');
@@ -66,16 +62,19 @@ function loadMoreHandler() {
 
   fetchImages(query, page, perPage)
     .then(({ data }) => {
-      notifyEndOfSearch(page, data.totalHits);
       ref.imageList.insertAdjacentHTML('beforeend', createMarkup(data.hits));
       loadMoreScrollDown();
+
       simpleLightBox.refresh();
+
+      stopLoad = false;
+
+      notifyEndOfSearch(page, data.totalHits);
     })
     .catch(error => console.log(error));
 }
 
 //---------------------------------------------
-
 function loadMoreScrollDown() {
   const { height: cardHeight } = document
     .querySelector('.gallery')
@@ -87,39 +86,47 @@ function loadMoreScrollDown() {
   });
 }
 
+function autoLoader() {
+  // нижняя граница документа
+  let windowRelativeBottom =
+    document.documentElement.getBoundingClientRect().bottom;
+
+  // если пользователь прокрутил достаточно далеко (< 100px до конца)
+  if (
+    windowRelativeBottom < document.documentElement.clientHeight + 100 &&
+    stopLoad === false
+  ) {
+    loadMoreHandler();
+
+    stopLoad = true;
+  }
+}
+
 function notifyEndOfSearch(page, totalHits) {
   const totalPages = Math.round(totalHits / perPage);
   if (totalHits <= perPage || page > totalPages) {
+    stopLoad = true;
+
     ref.loadMoreBtm.classList.add('is-hidden');
     ref.endOfSearch.classList.remove('is-hidden');
     Notify.info("We're sorry, but you've reached the end of search results.");
+    return;
   }
 }
 
 function notifySuccessOrNo(hits, totalHits) {
   if (hits.length === 0) {
+    stopLoad = true;
+
     Notify.warning(
       'Sorry, there are no images matching your search query. Please try again.'
     );
     return;
   } else {
+    stopLoad = false;
+
+    window.addEventListener('scroll', throttle(autoLoader, 1000));
+
     Notify.success(`Hooray! We found ${totalHits} images.`);
-    //-------
   }
 }
-
-// Init InfiniteScroll ==========================
-// let elem = document.querySelector('.gallery');
-// let infScroll = new InfiniteScroll( elem, {
-//     path: ".load-more",
-//   append: '.gallery__link',
-//   history: false,
-//   status: '.page-load-status',
-// });
-// // =======
-// const statusBar = document.querySelector('.status-bar');
-
-// infScroll.on( 'load', function() {
-//   statusBar.textContent = `Loaded page: ${infScroll.pageIndex}`;
-// });
-//================================================

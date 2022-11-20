@@ -1,4 +1,5 @@
 import axios from 'axios';
+import { Notify } from 'notiflix/build/notiflix-notify-aio';
 
 axios.defaults.baseURL = 'https://pixabay.com/api/';
 
@@ -9,12 +10,17 @@ export async function fetchImages(searchImg, page, perPage) {
     orientation: 'horizontal',
     safesearch: 'true',
     q: searchImg,
-    page: page,
     per_page: perPage,
+    page: page,
   });
 
-  const response = await axios.get(
-    `?${searchParams}`
-  );
+  const response = await axios.get(`?${searchParams}`);
+
+  if (searchImg === '') {
+    Notify.warning(
+      "UPS. I can't find the void. Please try typing something other, than spaces"
+    );
+    return;
+  }
   return response;
 }
